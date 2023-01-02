@@ -1,0 +1,4 @@
+eland==8.3.0
+elasticsearch==8.5.3
+sentence-transformers==2.2.2
+torch==1.11.0
