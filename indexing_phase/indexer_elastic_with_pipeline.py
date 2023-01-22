@@ -46,8 +46,6 @@ def main():
 
     # Declare a client instance of the Python Elasticsearch library.
     client = Elasticsearch(hosts=[ELASTIC_ADDRESS])
-    # Use this instead, IF using SECURITY ENABLED.
-    # client = Elasticsearch(hosts=[ELASTIC_ADDRESS], ca_certs=CA_CERTS_PATH, basic_auth=("elastic", ELASTIC_PASSWORD))
 
     initial_time = time.time()
     index_documents(document_filename, client)
