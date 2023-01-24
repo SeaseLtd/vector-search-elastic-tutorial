@@ -9,11 +9,11 @@ Passage Retrieval task is recommended
 
 https://microsoft.github.io/msmarco/Datasets.html#passage-ranking-dataset
 
-## Pipeline:
+## Folder content:
 `remove_id_from_corpus.py` :  to remove the id from the MS MARCO corpus
 
 `batch-sentence-transformers.py` :  to create vector embeddings from a corpus
-- Example INPUT: documents_5.tsv
-- Example OUTPUT: vector_documents_5.tsv
+- Example INPUT: documents_10k.tsv
+- Example OUTPUT: vector_documents_10k.tsv
 
 `single-sentence-transformers.py`:  to create vector embeddings from a single sentence

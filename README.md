@@ -1,39 +1,81 @@
-# vector-search-elastic
-Text Embeddings and Vector Search with Elasticsearch and Open-Source Technologies
+# vector-search-elastic #
+This is the repository for all the material about Text Embeddings and Vector Search with Elasticsearch and Open-Source Technologies.
 
-## Pipeline:
-- Produce Vectors Externally
+For a step-by-step description read our two blog posts:
 
-`from_text_to_vectors` &rarr; `batch-sentence-transformers.py`
+[Elasticsearch Neural Search Tutorial](https://sease.io/wp-admin/post.php?post=55826&action=edit)
 
-- Index documents to Elasticsearch
+[Elasticsearch Neural Search Tutorial: NLP feature integrated](https://sease.io/wp-admin/post.php?post=56082&action=edit&calypsoify=1)
 
-`indexing_phase` &rarr; `indexer_elastic.py`
+## Requirements: ##
 
-
-### Advance feature (Platinum or Enterprise License)
-- Index documents to Elasticsearch using a Text Embedding Ingest Pipeline
-
-`indexing_phase` &rarr; `indexer_elastic_with_pipeline.py`
-
-- Import and load language model to do inference directly within Elasticsearch
-
-`nlp_models`
-
-If you run `import_model.py` with basic license you got the following error:
-````
-elasticsearch.AuthorizationException: AuthorizationException(403, 'security_exception', 'current license is non-compliant for [ml]')
-````
-To use it, start a free trial: https://www.elastic.co/guide/en/elasticsearch/reference/current/start-trial.html
-
-
-## Requirements:
-
-To replicate this work just install the requirements.txt in your python environment.
-
+To replicate this work just install the requirements.txt in your python environment. 
 e.g. (Python 3.8)
 
 using pip
 ```
 pip install -r requirements.txt
 ```
+
+## Repository content ##
+- **[from_text_to_vectors](from_text_to_vectors)**: contains the python script to generate vector embeddings from MS Marco data
+  - **[example_input](from_text_to_vectors/example_input)**: contains the MS Marco data (10k)
+  - **[example_output](from_text_to_vectors/example_output)**: contains the vector embeddings obtained (10k)
+- **[indexing_phase](indexing_phase)**: contains the python script to index batches of documents to Elasticsearch at once from a file
+- **[nlp_models](nlp_models)**: contains the import_model.py python script to import the all-MiniLM-L6-v2 sentence transformer from HuggingFace to Elasticsearch
+
+## Pipeline: ##
+To run Elasticsearch (after [downloading](https://www.elastic.co/downloads/past-releases#elasticsearch) it):
+
+````
+cd elasticsearch-8.5.3
+bin/elasticsearch
+curl localhost:9200
+````
+
+To produce vectors externally:
+
+````
+cd from_text_to_vectors
+python batch-sentence-transformers.py "./example_input/documents_10k.tsv" "./example_output/vector_documents_10k.tsv"
+````
+
+To index batches of documents to Elasticsearch:
+
+````
+cd indexing_phase
+python indexer_elastic.py "../from_text_to_vectors/example_input/documents_10k.tsv" "../from_text_to_vectors/example_output/vector_documents_10k.tsv"
+````
+
+To transform a query into vectors:
+
+````
+cd from_text_to_vectors
+python single-sentence-transformers.py
+````
+
+### Advanced feature (Platinum or Enterprise License) ###
+
+If you run `import_model.py` with basic license you got the following error:
+````
+elasticsearch.AuthorizationException: AuthorizationException(403, 'security_exception', 'current license is non-compliant for [ml]')
+````
+To use it, start a [free trial](https://www.elastic.co/guide/en/elasticsearch/reference/current/start-trial.html):
+
+````
+curl -XPOST http://localhost:9200/_license/start_trial?acknowledge=true
+````
+
+To import and load a language model to do inference directly within Elasticsearch:
+
+````
+cd nlp_models
+python import_model.py
+````
+
+To index documents to Elasticsearch using a Text Embedding Ingest Pipeline:
+
+````
+cd indexing_phase
+python indexer_elastic_with_pipeline.py "../from_text_to_vectors/example_input/documents_10k.tsv"
+````

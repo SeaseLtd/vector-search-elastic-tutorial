@@ -28,7 +28,7 @@ def batch_encode_to_vectors(input_filename, output_filename):
             for n_lines in iter(lambda: tuple(islice(documents_file, BATCH_SIZE)), ()):
                 processed += 1
                 if processed % INFO_UPDATE_FACTOR == 0:
-                    print("processed {} batch of documents".format(processed))
+                    print("Processed {} batch of documents".format(processed))
                 # Create sentence embedding
                 vectors = encode(n_lines)
                 # Write each vector into the output file.
@@ -39,7 +39,7 @@ def batch_encode_to_vectors(input_filename, output_filename):
 
 def encode(documents):
     embeddings = model.encode(documents, show_progress_bar=True)
-    print('vector dimension: ' + str(len(embeddings[0])))
+    print('Vector dimension: ' + str(len(embeddings[0])))
     return embeddings
 
 def main():
