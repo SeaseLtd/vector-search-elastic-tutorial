@@ -1,5 +1,5 @@
 # vector-search-elastic #
-This is the repository for all the material about Text Embeddings and Vector Search with Elasticsearch and Open-Source Technologies.
+This is the repository for all the material on Text Embeddings and Vector Search with Elasticsearch and Open-Source Technologies.
 
 For a step-by-step description read our two blog posts:
 
@@ -21,7 +21,7 @@ pip install -r requirements.txt
 - **[from_text_to_vectors](from_text_to_vectors)**: contains the python script to generate vector embeddings from MS Marco data
   - **[example_input](from_text_to_vectors/example_input)**: contains the MS Marco data (10k)
   - **[example_output](from_text_to_vectors/example_output)**: contains the vector embeddings obtained (10k)
-- **[indexing_phase](indexing_phase)**: contains the python script to index batches of documents to Elasticsearch at once from a file
+- **[indexing_phase](indexing_phase)**: contains the python scripts to index batches of documents to Elasticsearch at once from a file
 - **[nlp_models](nlp_models)**: contains the import_model.py python script to import the all-MiniLM-L6-v2 sentence transformer from HuggingFace to Elasticsearch
 
 ## Pipeline: ##
@@ -73,7 +73,7 @@ cd nlp_models
 python import_model.py
 ````
 
-To index documents to Elasticsearch using a Text Embedding Ingest Pipeline:
+To index batches of documents to Elasticsearch using a Text Embedding Ingest Pipeline:
 
 ````
 cd indexing_phase

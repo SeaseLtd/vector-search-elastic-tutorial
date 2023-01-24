@@ -1,5 +1,5 @@
 # from_text_to_vector
-This  folder contains all the material about Text Embeddings
+This  folder contains all the material on Text Embeddings
 
 ## Model:
 https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2

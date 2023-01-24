@@ -1,5 +1,5 @@
 # indexing_phase
-This folder contains the material about indexing data to Elasticsearch through the Bulk API or through elasticsearch.helpers.bulk().
+This folder contains the material on indexing data to Elasticsearch through the `Bulk API` or through `elasticsearch.helpers.bulk()`.
 
 ## Folder content:
 
@@ -10,7 +10,7 @@ cd indexing_phase
 python indexer_elastic.py "../from_text_to_vectors/example_input/documents_10k.tsv" "../from_text_to_vectors/example_output/vector_documents_10k.tsv"
 ````
 
-To index documents to Elasticsearch using a Text Embedding Ingest Pipeline (bulk helper):
+To index batches of documents to Elasticsearch using a Text Embedding Ingest Pipeline (bulk helper):
 
 ````
 cd indexing_phase
