@@ -3,9 +3,9 @@ This is the repository for all the material on Text Embeddings and Vector Search
 
 For a step-by-step description read our two blog posts:
 
-[Elasticsearch Neural Search Tutorial](https://sease.io/wp-admin/post.php?post=55826&action=edit)
+[Elasticsearch Neural Search Tutorial](https://sease.io/2023/03/elasticsearch-neural-search-tutorial.html)
 
-[Elasticsearch Neural Search Tutorial: NLP feature integrated](https://sease.io/wp-admin/post.php?post=56082&action=edit&calypsoify=1)
+[Elasticsearch Neural Search Tutorial (Platinum/Enterprise)](https://sease.io/2023/03/elasticsearch-neural-search-tutorial-platinum-enterprise.html)
 
 ## Requirements: ##
 
