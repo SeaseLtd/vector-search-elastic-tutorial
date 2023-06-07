@@ -1,11 +1,13 @@
 # vector-search-elastic #
 This is the repository for all the material on Text Embeddings and Vector Search with Elasticsearch and Open-Source Technologies.
 
-For a step-by-step description read our two blog posts:
+For a step-by-step description read our blog posts:
 
 [Elasticsearch Neural Search Tutorial](https://sease.io/2023/03/elasticsearch-neural-search-tutorial.html)
 
 [Elasticsearch Neural Search Tutorial (Platinum/Enterprise)](https://sease.io/2023/03/elasticsearch-neural-search-tutorial-platinum-enterprise.html)
+
+[Elasticsearch Neural Search Improvements in 8.6 and 8.7)](https://sease.io/2023/05/elasticsearch-neural-search-improvements-in-8-6-and-8-7.html)
 
 ## Requirements: ##
 
@@ -28,7 +30,7 @@ pip install -r requirements.txt
 To run Elasticsearch (after [downloading](https://www.elastic.co/downloads/past-releases#elasticsearch) it):
 
 ````
-cd elasticsearch-8.5.3
+cd elasticsearch-8.8.0
 bin/elasticsearch
 curl localhost:9200
 ````
@@ -37,14 +39,14 @@ To produce vectors externally:
 
 ````
 cd from_text_to_vectors
-python batch-sentence-transformers.py "./example_input/documents_10k.tsv" "./example_output/vector_documents_10k.tsv"
+python batch-sentence-transformers.py "./example_input/documents_10k.tsv" "./example_output/vector_documents_10k_384.tsv"
 ````
 
 To index batches of documents to Elasticsearch:
 
 ````
 cd indexing_phase
-python indexer_elastic.py "../from_text_to_vectors/example_input/documents_10k.tsv" "../from_text_to_vectors/example_output/vector_documents_10k.tsv"
+python indexer_elastic.py "../from_text_to_vectors/example_input/documents_10k.tsv" "../from_text_to_vectors/example_output/vector_documents_10k_384.tsv" "../from_text_to_vectors/example_output/vector_documents_10k_768.tsv"
 ````
 
 To transform a query into vectors:

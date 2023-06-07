@@ -8,6 +8,9 @@ import time
 
 BATCH_SIZE = 100
 INFO_UPDATE_FACTOR = 1
+
+#Replace the model name to 'msmarco-distilbert-base-dot-prod-v3' to map sentences to
+# a 768 dimensional dense vector space
 MODEL_NAME = 'all-MiniLM-L6-v2'
 
 # Load or create a SentenceTransformer model.
