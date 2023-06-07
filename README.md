@@ -7,7 +7,7 @@ For a step-by-step description read our blog posts:
 
 [Elasticsearch Neural Search Tutorial (Platinum/Enterprise)](https://sease.io/2023/03/elasticsearch-neural-search-tutorial-platinum-enterprise.html)
 
-[Elasticsearch Neural Search Improvements in 8.6 and 8.7)](https://sease.io/2023/05/elasticsearch-neural-search-improvements-in-8-6-and-8-7.html)
+[Elasticsearch Neural Search Improvements in 8.6 and 8.7](https://sease.io/2023/05/elasticsearch-neural-search-improvements-in-8-6-and-8-7.html)
 
 ## Requirements: ##
 
